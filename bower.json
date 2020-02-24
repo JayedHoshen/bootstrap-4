@@ -1,0 +1,23 @@
+{
+  "name": "bspractic",
+  "homepage": "https://github.com/JayedHoshen/bspractic",
+  "authors": [
+    "Jayedkn <jayedkn64@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^2.0.6",
+    "font-awesome": "^5.12.1"
+  }
+}

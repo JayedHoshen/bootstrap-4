@@ -1,0 +1,1 @@
+C:\Users\Nasrullah>  (cmd.exe /c "c:\program Files\Git\bin\bash.exe" --login -i)
