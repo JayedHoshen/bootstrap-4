@@ -11,11 +11,20 @@
     <!-- font awesome -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <style>
+        .navbar {
+            z-index: 999;
+        }
+        
+        .carousel-item {
+            height: 100vh;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Navbar start -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="position-fixed w-100 navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
             <a href="#" class="navbar-brand">
                 <i class="fab fa-battle-net"></i> Mj Tech.com
@@ -25,23 +34,34 @@
             </button>
             <div class="collapse navbar-collapse" id="navbtn">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
+                    <li class="nav-item p-1 ml-5">
                         <a href="#" class="nav-link">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">About Us</a>
+                    <li class="nav-item p-1">
+                        <a href="#" class="nav-link">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Services</a>
-                    </li>
-                    <li class="nav-item">
+                    <li class="nav-item p-1">
                         <a href="#" class="nav-link">Blog</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item p-1">
                         <a href="#" class="nav-link">Contact</a>
                     </li>
+                    <li class="nav-item p-2">
+                        <div class="dropdown btn-group">
+                            <button class="btn btn-secondary text-white-50">Services</button>
+                            <button class="btn btn-secondary dropdown-toggle " data-toggle="dropdown"></button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Web Design</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">Web Development</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">Graphics Design</a>
+                                <div class="dropdown-divider"></div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto d-none">
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="fab fa-facebook"></i>
@@ -69,126 +89,317 @@
                     </li>
                 </ul>
             </div>
+            <!-- modal linkup here -->
+            <button type="button" class="btn text-dark text-muted bg-light" data-toggle="modal" data-target="#login_signup">Log In | Sign up</button>
         </div>
     </nav>
+    <!-- modal link data -->
+    <div class="modal fade" id="login_signup" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Log In</h4>
+                    <button class="close" type="button" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="name" class="ml-5">What is your Name?</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="pr-3">
+                                        <i class="fas fa-user-circle fa-2x"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="First Name" id="name">
+                                <input type="text" class="form-control" placeholder="Last Name" id="name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="ml-5">What is your E-mail?</label>
+                            <div class="d-flex">
+                                <span class="pr-3">
+                                    <i class="fas fa-envelope fa-2x"></i>
+                                </span>
+                                <input type="email" class="form-control" placeholder="Your email" id="email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="ml-5">What is your Password?</label>
+                            <div class="d-flex">
+                                <span class="pr-3">
+                                    <i class="fas fa-unlock fa-2x"></i>
+                                </span>
+                                <input type="password" class="form-control" placeholder="Your password" id="password">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center my-3">
+                            <button type="submit" class="btn btn-dark btn-lg text-uppercase">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer text-muted">
+                    &copy;Mj: Thanks for submitted your information!
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Navbar ends -->
 
     <!-- slider start -->
-    <div id="carouelSlider" class="carousel slide" data-ride="slide">
+    <div id="carouelSliderIndecator" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carouselSlider" data-slide-to="0" class="active">
+            <li data-target="#carouelSliderIndecator" data-slide-to="0" class="active">
             </li>
-            <li data-target="#carouselSlider" data-slide-to="1"></li>
-            <li data-target="#carouselSlider" data-slide-to="2"></li>
-            <li data-target="#carouselSlider" data-slide-to="3"></li>
+            <li data-target="#carouelSliderIndecator" data-slide-to="1"></li>
+            <li data-target="#carouelSliderIndecator" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="../images/slider (1).jpeg" alt="slider1">
+            <div class=" carousel-item active " data-interval="3000">
+                <img class="d-block w-100 " src="../images/slider2.jpeg " alt="slider1 ">
+                <div class="carousel-caption">
+                    <h4 class="display-1 text-truncate">Welcome to Our Website</h4>
+                    <p class="lead text-white-50 text-justify bd-text-purple-bright text-capitalize">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non architecto, sint sequi, veritatis iusto praesentium nisi delectus laboriosam minima officia commodi iure porro reiciendis corrupti neque in, quo pariatur numquamLorem, ipsum
+                        dolor sit amet consectetur adipisicing elit. Non architecto, sint sequi, veritatis iusto praesentium nisi delectus laboriosam minima officia commodi iure porro reiciendis corrupti neque</p>
+                </div>
             </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../images/slider (2).jpeg" alt="slider1">
+            <div class="carousel-item" data-interval="3000">
+                <img class=" d-block w-100 " src="../images/slider1.jpeg " alt="slider1 ">
+                <div class="carousel-caption">
+                    <h4 class="display-1 text-truncate">Welcome to Our Website</h4>
+                    <p class="lead text-white-50 text-justify bd-text-purple-bright text-capitalize">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non architecto, sint sequi, veritatis iusto praesentium nisi delectus laboriosam minima officia commodi iure porro reiciendis corrupti neque in, quo pariatur numquamLorem, ipsum
+                        dolor sit amet consectetur adipisicing elit. Non architecto, sint sequi, veritatis iusto praesentium nisi delectus laboriosam minima officia commodi iure porro reiciendis corrupti neque</p>
+                </div>
             </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../images/slider (3).jpeg" alt="slider1">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../images/slider (4).jpeg" alt="slider1">
+            <div class="carousel-item " data-interval="3000">
+                <img class="d-block w-100 " src="../images/slider3.jpeg " alt="slider1 ">
+                <div class="carousel-caption">
+                    <h4 class="display-1 text-truncate">Welcome to Our Website</h4>
+                    <p class="lead text-white-50 text-justify bd-text-purple-bright text-capitalize">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non architecto, sint sequi, veritatis iusto praesentium nisi delectus laboriosam minima officia commodi iure porro reiciendis corrupti neque in, quo pariatur numquamLorem, ipsum
+                        dolor sit amet consectetur adipisicing elit. Non architecto, sint sequi, veritatis iusto praesentium nisi delectus laboriosam minima officia commodi iure porro reiciendis corrupti neque</p>
+                </div>
             </div>
         </div>
+        <a href=" #carouelSliderIndecator" class="carousel-control-prev" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a href="#carouelSliderIndecator" class="carousel-control-next" role="button" data-slide="next" aria-hidden="true ">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
     </div>
     <!-- slider ends -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../images/slider (1).jpeg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../images/slider (1).jpeg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../images/slider (1).jpeg" class="d-block w-100" alt="...">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <!-- jumbotron -->
-    <section id="aboutSection">
-        <div class="jumbotron text-center">
-            <h1 class="display-4">Welcome to Our website</h1>
-            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam consequuntur error eos dolor vitae, officia velit enim voluptatibus, nemo, ut voluptatum dolorum temporibus ab totam eligendi beatae obcaecati atque aliquid?</p>
-            <hr class="my-3">
-            <button class="btn btn-primary btn-lg">Share our videos</button>
-            <button class="btn btn-success btn-lg">Please Subscribe</button>
+
+    <!-- about section -->
+    <section id="aboutSection ">
+        <div class="jumbotron text-center ">
+            <h1 class="display-4 text-dark">About Us</h1>
+            <p class="lead ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam consequuntur error eos dolor vitae, officia velit enim voluptatibus, nemo, ut voluptatum dolorum temporibus ab totam eligendi beatae obcaecati atque aliquid?</p>
+            <hr class="my-3 ">
+            <button class="btn btn-primary btn-lg ">Share our videos</button>
+            <button class="btn btn-success btn-lg ">Please Subscribe</button>
         </div>
     </section>
-    <!-- jumbotron ends -->
+    <!-- about section ends -->
 
-    <!-- card start -->
-    <div class="container my-4">
-        <div class="row">
-            <div class="card-deck">
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <img class="card-img-top" src="../images/card-2.jpg" alt="card images">
-                        <div class="card-body">
-                            <h4 class="card-title">Web Design</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit sunt facere at quia, odio ipsa debitis aliquid perspiciatis dolorem deserunt!</p>
-                            <a class="btn btn-primary" href="#">Learn more..</a>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last update 5 mins ago</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <img class="card-img-top" src="../images/graphics.jpg" alt="card images">
-                        <div class="card-body">
-                            <h4 class="card-title">Web Development</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit sunt facere at quia, odio ipsa debitis aliquid perspiciatis dolorem deserunt!</p>
-                            <a class="btn btn-primary" href="#">Learn more...</a>
-                        </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last update 3 mins ago</small>
+    <!-- services start -->
+    <section>
+        <div class="container my-4 ">
+            <div class="text-center my-4 text-dark">
+                <h2 class="display-4">Our Services</h2>
+            </div>
+            <div class="row ">
+                <div class="card-deck ">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card ">
+                            <img class="card-img-top " src="../images/card-2.jpg " alt="card images ">
+                            <div class="card-body ">
+                                <h4 class="card-title ">Web Design</h4>
+                                <p class="card-text ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit sunt facere at quia, odio ipsa debitis aliquid perspiciatis dolorem deserunt!</p>
+                                <a class="btn btn-primary " href="# ">Learn more..</a>
+                            </div>
+                            <div class="card-footer ">
+                                <small class="text-muted ">Last update 5 mins ago</small>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card">
-                        <img class="card-img-top" src="../images/card-4.jpg" alt="card images">
-                        <div class="card-body">
-                            <h4 class="card-title">Graphics Design</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit sunt facere at quia, odio ipsa debitis aliquid perspiciatis dolorem deserunt!</p>
-                            <a class="btn btn-primary" href="#">Learn more</a>
+                    <div class="col-lg-4 col-md-6 ">
+                        <div class="card ">
+                            <img class="card-img-top " src="../images/graphics.jpg " alt="card images ">
+                            <div class="card-body ">
+                                <h4 class="card-title ">Web Development</h4>
+                                <p class="card-text ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit sunt facere at quia, odio ipsa debitis aliquid perspiciatis dolorem deserunt!</p>
+                                <a class="btn btn-primary " href="# ">Learn more...</a>
+                            </div>
+                            <div class="card-footer ">
+                                <small class="text-muted ">Last update 3 mins ago</small>
+                            </div>
                         </div>
-                        <div class="card-footer">
-                            <small class="text-muted">Last update 5 mins ago</small>
+                    </div>
+                    <div class="col-lg-4 col-md-6 ">
+                        <div class="card ">
+                            <img class="card-img-top " src="../images/card-4.jpg " alt="card images ">
+                            <div class="card-body ">
+                                <h4 class="card-title ">Graphics Design</h4>
+                                <p class="card-text ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit sunt facere at quia, odio ipsa debitis aliquid perspiciatis dolorem deserunt!</p>
+                                <a class="btn btn-primary " href="# ">Learn more</a>
+                            </div>
+                            <div class="card-footer ">
+                                <small class="text-muted ">Last update 5 mins ago</small>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- card ends -->
+    </section>
+    <!--  services ends -->
 
+    <!-- clients reviews start -->
+    <section class="bg-light p-1">
+        <div class="container">
+            <div class="text-center my-5 text-dark">
+                <h2 class="display-4">Chose Question</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Collapsible Group Item #1
+                              </button>
+                                </h2>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                                    on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                                    craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Collapsible Group Item #2
+                              </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                                    on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                                    craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Collapsible Group Item #3
+                              </button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                                    on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                                    craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="figure">
+                        <img class="figure-img img-fluid rounded" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" src="../images/slider1.jpeg" alt="image">
+                        <figcaption class="figure-caption">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel perspiciatis totam, quae quod laborum adipisci magnam, sapiente veniam laboriosam similique minima dicta. Delectus, veniam. Voluptates omnis labore sapiente libero totam.</figcaption>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- clients reviews ends -->
+
+    <!-- contact us start -->
+    <section>
+        <div class="container">
+            <div class="jumbotron">
+                <h2 class="display-4 text-dark text-center">Contact Us</h2>
+                <div class="row">
+                    <div class="col-lg-5 col-md-12 col-sm-12 text-center py-5">
+                        <div class="card bg-primary text-white" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
+                            <div class="card-body">
+                                <h3 class="display-4">Submit Your Information</h3>
+                                <p class="lead">
+                                    A Tutorial Channel for Technology Lovers, If you love it you will be submit our channel
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-sm-12 offset-lg-1 py-3">
+                        <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);">
+                            <div class="card-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="name" class="ml-5">What is your Name?</label>
+                                        <div class="d-flex">
+                                            <span class="pr-3">
+                                                <i class="fas fa-user-circle fa-2x"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Your Name" id="name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="ml-5">What is your E-mail?</label>
+                                        <div class="d-flex">
+                                            <span class="pr-3">
+                                                <i class="fas fa-envelope fa-2x"></i>
+                                            </span>
+                                            <input type="email" class="form-control" placeholder="Your email" id="email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="ml-5">What is your Password?</label>
+                                        <div class="d-flex">
+                                            <span class="pr-3">
+                                                <i class="fas fa-unlock fa-2x"></i>
+                                            </span>
+                                            <input type="password" class="form-control" placeholder="Your password" id="password" required>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="submit" class=" btn btn-outline-dark btn-lg mt-3 ">Please Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact us ends -->
+
+    <!-- footer start -->
+    <section class="py-4 bg-dark">
+        <div class="container">
+            <p class="lead text-center text-white-50">&copy;Mj All Rights Reserve 2020</p>
+        </div>
+    </section>
+    <!-- footer ends -->
 
     <!-- all js file link here -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/popper.js/src/popper.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js "></script>
+    <script src="../bower_components/popper.js/src/popper.js "></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js "></script>
+
 </body>
 
 </html>
